@@ -282,9 +282,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 122876, guid: 4742b19cddcb6498a985c99bde7dbc12, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 126556, guid: 4742b19cddcb6498a985c99bde7dbc12, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 160872, guid: 4742b19cddcb6498a985c99bde7dbc12, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 168994, guid: 4742b19cddcb6498a985c99bde7dbc12, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 191076, guid: 4742b19cddcb6498a985c99bde7dbc12, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 199232, guid: 4742b19cddcb6498a985c99bde7dbc12, type: 3}
       propertyPath: m_Name
       value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 199232, guid: 4742b19cddcb6498a985c99bde7dbc12, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 410702, guid: 4742b19cddcb6498a985c99bde7dbc12, type: 3}
       propertyPath: m_RootOrder
@@ -349,6 +373,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6f95e52241ce340bd3c61be1741916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 10
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!58 &1548040267
 CircleCollider2D:
   m_ObjectHideFlags: 0
