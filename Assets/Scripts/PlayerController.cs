@@ -18,21 +18,28 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rigidBody.velocity.x < runSpeed)
-        {
-            rigidBody.velocity = new Vector2(runSpeed, rigidBody.velocity.y);
-        }
+        GameState currentState = GameManager.GetInstance().currentGameState;
+        if (currentState == GameState.InGame){
+            if (rigidBody.velocity.x < runSpeed)
+            {
+                rigidBody.velocity = new Vector2(runSpeed, rigidBody.velocity.y);
+            }
+        }/* else {
+            rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
+        }*/
     }
 
     // Update is called once per frame
     void Update()
     {
+        bool canJump = GameManager.GetInstance().currentGameState == GameState.InGame;
         bool isOnTheGround = IsOnTheGround();
         animator.SetBool("isGrounded", isOnTheGround);
 
         if ( (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || 
             Input.GetKeyDown(KeyCode.W)) 
-            && IsOnTheGround())
+            && IsOnTheGround()
+            && canJump)
         {
             Jump();
         }
