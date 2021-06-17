@@ -275,6 +275,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &541057736 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9560166, guid: 62359dbec881e4a0a8ba81638de6e92a, type: 3}
+  m_PrefabInstance: {fileID: 59133890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1074002802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -373,10 +378,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6f95e52241ce340bd3c61be1741916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 10
+  thrust: 20
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  animator: {fileID: 541057736}
 --- !u!58 &1548040267
 CircleCollider2D:
   m_ObjectHideFlags: 0
