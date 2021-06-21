@@ -9,11 +9,29 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayerMask;
     public Animator animator;
     public float runSpeed = 3f;
-    // Start is called before the first frame update
-    void Start()
+    private static PlayerController sharedInstance;
+    private Vector3 initialPosition;
+    private Vector2 initialVelocity;
+    private void Awake()
     {
+        sharedInstance = this;
+        initialPosition = transform.position;
         rigidBody = GetComponent<Rigidbody2D>();
+        initialVelocity = rigidBody.velocity;
         animator.SetBool("isAlive", true);
+    }
+
+    public static PlayerController GetInstance()
+    {
+        return sharedInstance;
+    }
+
+    // Start is called before the first frame update
+    public void StartGame()
+    {
+        animator.SetBool("isAlive", true);
+        transform.position = initialPosition;
+        rigidBody.velocity = initialVelocity;
     }
 
     private void FixedUpdate()
@@ -53,5 +71,11 @@ public class PlayerController : MonoBehaviour
     bool IsOnTheGround()
     {
         return Physics2D.Raycast(transform.position, Vector2.down, 1.0f, groundLayerMask.value);
+    }
+
+    public void KillPlayer()
+    {
+        animator.SetBool("isAlive", false);
+        GameManager.GetInstance().GameOver();
     }
 }

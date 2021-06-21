@@ -21,20 +21,20 @@ public class GameManager : MonoBehaviour
     public GameState currentGameState = GameState.Menu;
     private static GameManager sharedInstance;
 
+    private void Awake()
+    {
+        sharedInstance = this;
+    }
+
     private void Start(){
         currentGameState = GameState.Menu;
     }
 
     private void Update(){
-        if (Input.GetButtonDown("s"))
-        //if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetButtonDown("s") && GameState.InGame != currentGameState)
         {
             StartGame();
         }
-    }
-    private void Awake()
-    {
-        sharedInstance = this;
     }
 
     public static GameManager GetInstance()
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
+        PlayerController.GetInstance().StartGame();
         ChangeGameState(GameState.InGame);        
     }
 
